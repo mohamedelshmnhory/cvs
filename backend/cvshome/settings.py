@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     # internal apps
     'api',
     'jobs',
+    'levels',
+    'favourites',
 ]
 
 MIDDLEWARE = [
@@ -154,7 +156,7 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
-    "PAGE_SIZE": 10
+    "PAGE_SIZE": 15
 }
 
 AUTH_USER_MODEL = 'api.CustomUser'
