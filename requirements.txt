@@ -3,4 +3,6 @@ djangorestframework
 djangorestframework-simplejwt
 pyyaml
 requests
-django-cors-headers 
+django-cors-headers
+django_filter
+Pillow
