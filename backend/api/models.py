@@ -22,8 +22,8 @@ class CustomUser(AbstractUser):
     level = models.ForeignKey(Level, on_delete=models.SET_NULL, null=True, blank=True)
 
     def is_favourite(self, request):
-        if request and request.user:
-            return Favorite.objects.filter(user=request.user).filter(profiles=self).exists()
+        if request.user.is_authenticated:
+            return Favorite.objects.filter(user=request.user, profiles=self).exists()
         return False
 
     def save(self, *args, **kwargs):
