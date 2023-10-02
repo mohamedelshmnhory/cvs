@@ -6,3 +6,5 @@ requests
 django-cors-headers
 django_filter
 Pillow
+django-storages
+boto3

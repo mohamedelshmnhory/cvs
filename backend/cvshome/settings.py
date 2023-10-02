@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'django_filters',
+    'storages',
     # internal apps
     'api',
     'jobs',
@@ -164,3 +165,10 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'api.CustomUser'
+
+AWS_ACCESS_KEY_ID = "AKIAR4YRFQBDLJ3C2OE4"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "cvslive"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
