@@ -14,7 +14,7 @@ import django_filters
 
 
 class CustomUser(AbstractUser):
-    avatar = models.ImageField(upload_to='profile_images', blank=True)
+    avatar = models.ImageField(upload_to='profile_images/', blank=True)
     fullname = models.CharField(max_length=30, null=True, blank=True)
     phone = models.CharField(max_length=15, null=True, blank=True)
     age = models.IntegerField(null=True, blank=True)
@@ -31,14 +31,15 @@ class CustomUser(AbstractUser):
 
     def save(self, *args, **kwargs):
         if self.avatar:
+            name = f"{self.username}_{self.avatar.name}"
             # Generate a unique filename for the avatar
-            filename = f"profile_images/{self.username}_{self.avatar.name}"
+            filename = f"profile_images/{name}"
 
             # Save the avatar to the default storage
             default_storage.save(filename, ContentFile(self.avatar.read()))
 
             # Update the avatar field with the base URL and filename
-            self.avatar = f"https://example.com/media/{filename}"
+            self.avatar = f"{filename}"  # https://example.com/media/{filename}
 
         super().save(*args, **kwargs)
 
