@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '51.20.86.237',
     '16.171.110.113',
+    '13.50.207.200',
 ]
 
 # Application definition
